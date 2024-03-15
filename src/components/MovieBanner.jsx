@@ -24,37 +24,37 @@ const MovieBanner = (props) => {
 
 
   return (
-    <div className="flex relative h-screen overflow-hidden  ">
+    <div className="lg:flex relative lg:h-screen overflow-hidden items-center 2xl:items-start   ">
       {movieData && movieData.backdrop_path && (
         <img
           src={`https://image.tmdb.org/t/p/original/${movieData.backdrop_path}`}
           alt=""
-          className="absolute -z-10 opacity-20"
+          className="absolute -z-10 opacity-20 lg:h-screen w-screen"
         />
       )}
-      <div className="w-1/3 flex items-center p-16">
+      <div className="w-full lg:w-1/3 flex items-center p-16">
         {movieData && movieData.poster_path && (
           <img
             src={`https://image.tmdb.org/t/p/original/${movieData.poster_path}`}
             alt=""
-            className="rounded-2xl shadow-lg shadow-gray-800"
+            className="rounded-2xl shadow-lg shadow-gray-800 2xl:mt-10"
           />
         )}
       </div>
-      <div className="w-2/3 pt-16">
-        <div className="text-5xl py-4">{movieData.title}</div>
+      <div className="lg:w-2/3 pt-16 p-4 2xl:pl-20">
+        <div className="lg:text-5xl text-4xl py-4 2xl:text-9xl 2xl:mt-24 2xl:pb-5">{movieData.title}</div>
 
-        <div className="text-xl text-gray-400" >{movieData.tagline}</div>
+        <div className="text-xl text-gray-400 2xl:text-2xl " >{movieData.tagline}</div>
 
         <div className="flex ">
-          <div className="w-3/4 pr-10 ">
-            <div className="flex gap-2 py-4">
+          <div className="lg:w-3/4  lg:pr-10 ">
+            <div className="flex justify-around lg:justify-start lg:gap-2 py-4">
               {movieData &&
                 movieData.genres &&
                 movieData.genres.map((genre) => {
                   return (
                     <div
-                      className="bg-gray-800 py-1 px-6 rounded-2xl text-gray-400 w-fit"
+                      className="bg-gray-800 py-1 px-2 lg:px-6 rounded-2xl text-sm text-gray-400 w-fit 2xl:text-xl"
                       key={genre.id}
                     >
                       {genre.name}
@@ -64,7 +64,7 @@ const MovieBanner = (props) => {
             </div>
 
             <div
-              className="subtitle flex items-center gap-5 text-lg py-4"
+              className="subtitle flex items-center gap-5 text-lg  py-4 2xl:text-2xl"
               data-swiper-parallax="-200"
             >
               <div className="flex items-center gap-2">
@@ -74,11 +74,11 @@ const MovieBanner = (props) => {
               <div className="font-semibold">{movieData.runtime} min</div>
             </div>
 
-            <div className="py-2">
+            <div className="py-2 2xl:text-xl">
              {movieData.overview}
             </div>
 
-            <div className="flex gap-4 py-4">
+            <div className="flex justify-center lg:justify-start gap-4 py-4 2xl:pt-10">
               <Link to={`/movie/${movieData.id}`}>
                 <button className="py-4 px-10 rounded-full hover:scale-105 bg-gradient-to-r from-blue-800 to-teal-400 font-semibold">
                   Watch Now

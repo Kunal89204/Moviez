@@ -70,7 +70,7 @@ const CategoryCarousal = (props) => {
                   </Link>
                 </div>
                 <div className="flex gap-4 justify-between py-1">
-                  <div className="text-xl hover:text-blue-300">
+                  <div className="lg:text-xl hover:text-blue-300">
                     <Link to={`/movie-info/${movie.id}`}>{movie.title}</Link>
                   </div>
                   <div className="text-lg">{movie.release_date.split('-')[0]} </div>

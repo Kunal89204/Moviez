@@ -31,8 +31,30 @@ const Cast = (props) => {
 
       <div className="text-4xl py-2">Cast</div>
       <Swiper
-      spaceBetween={1}
-      slidesPerView={9}
+      spaceBetween={2}
+      slidesPerView={2}
+      breakpoints={{
+        400: {
+          slidesPerView: 3,
+          spaceBetween: 10,
+        },
+        640: {
+          slidesPerView: 4,
+          spaceBetween: 10,
+        },
+        768: {
+          slidesPerView: 5,
+        },
+        890:{
+          slidesPerView: 8,
+        },
+        1060:{
+          slidesPerView: 9,
+        },
+        1150:{
+          slidesPerView: 10,
+        }
+      }}
      
     >
 

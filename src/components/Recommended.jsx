@@ -46,7 +46,7 @@ const Recommended = (props) => {
                         />
                       </Link>
                     </div>
-                    <div className="text-2xl">
+                    <div className="lg:text-2xl">
                       <Link to={`/movie-info/${movies.id}`}>
                         {movies.title}
                       </Link>
