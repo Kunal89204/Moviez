@@ -6,6 +6,8 @@ import "swiper/css/navigation";
 import { Parallax, Pagination, Navigation } from "swiper/modules";
 import axios from "axios";
 import { CiStar } from "react-icons/ci";
+import { Link } from "react-router-dom";
+
 
 const Hero = ({ movieIds }) => {
   const [movies, setMovies] = useState([]);
@@ -19,7 +21,7 @@ const Hero = ({ movieIds }) => {
               `https://api.themoviedb.org/3/movie/${movieId}`,
               {
                 params: {
-                  api_key: "",
+                  api_key: import.meta.env.VITE_API_KEY,
                   language: "en-US",
                 },
               }
@@ -59,8 +61,8 @@ const Hero = ({ movieIds }) => {
                 className="absolute top-0 left-0 h-full w-full bgsh"
                 style={{
                   backgroundImage: `url(https://image.tmdb.org/t/p/original${movie.belongs_to_collection.backdrop_path})`,
-                  backgroundSize: "cover", // Adjust the background size
-                  backgroundPosition: "center", // Center the background image
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
                 }}
               ></div>
               {/* Info div below */}
@@ -80,16 +82,15 @@ const Hero = ({ movieIds }) => {
                   </div>
                   <div className="font-semibold">{movie.release_date}</div>
                   <div className="font-semibold">{movie.runtime} min</div>
-                  {/* Add more movie details as needed */}
                 </div>
                 <div className="text-lg py-4" data-swiper-parallax="-100">
                   <p>{movie.overview}</p>
                 </div>
 
                 <div className="py-8">
-                  <button className="py-4 px-10 bg-gradient-to-r from-blue-800 to-teal-400 font-semibold">
+                  <Link to={`/movie-info/${movie.id}`}><button className="py-4 px-10 bg-gradient-to-r from-blue-800 to-teal-400 font-semibold">
                     Watch Now
-                  </button>
+                  </button></Link>
                 </div>
               </div>
               {/* Info div above */}
