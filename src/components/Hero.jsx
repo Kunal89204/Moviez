@@ -8,7 +8,6 @@ import axios from "axios";
 import { CiStar } from "react-icons/ci";
 import { Link } from "react-router-dom";
 
-
 const Hero = ({ movieIds }) => {
   const [movies, setMovies] = useState([]);
 
@@ -56,7 +55,7 @@ const Hero = ({ movieIds }) => {
       >
         {movies.map((movie) => (
           <SwiperSlide key={movie.id}>
-            <div className="h-[100vh] relative">
+            <div className="lg:h-[100vh] h-[60vh] relative">
               <div
                 className="absolute top-0 left-0 h-full w-full bgsh"
                 style={{
@@ -66,31 +65,36 @@ const Hero = ({ movieIds }) => {
                 }}
               ></div>
               {/* Info div below */}
-              <div className="absolute top-1/2 -translate-y-1/2 w-2/3 px-14">
+              <div className="absolute top-2/4 lg:top-1/2 -translate-y-1/2 w-full lg:w-2/3 px-14">
                 <div
-                  className="title text-6xl py-6 bg-clip-text text-transparent bg-gradient-to-tr from-blue-700 to bg-teal-400 font-semibold"
+                  className="title text-3xl lg:text-6xl lg:py-6 bg-clip-text text-transparent bg-gradient-to-tr from-blue-700 to bg-teal-400 font-semibold"
                   data-swiper-parallax="-300"
                 >
                   {movie.title}
                 </div>
                 <div
-                  className="subtitle flex items-center gap-5 text-lg py-2"
+                  className="subtitle flex items-center gap-5 text-sm lg:text-lg py-2"
                   data-swiper-parallax="-200"
                 >
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 ">
                     <CiStar className="text-xl" /> {movie.vote_average}
                   </div>
-                  <div className="font-semibold">{movie.release_date}</div>
-                  <div className="font-semibold">{movie.runtime} min</div>
+                  <div className=" font-semibold">{movie.release_date}</div>
+                  <div className=" font-semibold">{movie.runtime} min</div>
                 </div>
-                <div className="text-lg py-4" data-swiper-parallax="-100">
+                <div
+                  className="text-sm lg:text-lg py-6  line-clamp-3"
+                  data-swiper-parallax="-100"
+                >
                   <p>{movie.overview}</p>
                 </div>
 
-                <div className="py-8">
-                  <Link to={`/movie-info/${movie.id}`}><button className="py-4 px-10 bg-gradient-to-r from-blue-800 to-teal-400 font-semibold">
-                    Watch Now
-                  </button></Link>
+                <div className="lg:py-8 pt-4">
+                  <Link to={`/movie-info/${movie.id}`}>
+                    <button className="py-4 px-10 bg-gradient-to-r from-blue-800 to-teal-400 font-semibold">
+                      Watch Now
+                    </button>
+                  </Link>
                 </div>
               </div>
               {/* Info div above */}

@@ -23,6 +23,7 @@ const CategoryCarousal = (props) => {
           console.log(error);
         });
     }, []);
+    
   
     return (
       <div className="p-2">
@@ -32,8 +33,26 @@ const CategoryCarousal = (props) => {
   
         <div>
           <Swiper
+          breakpoints={{
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 10,
+            },
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 10,
+            },
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 10,
+            },
+            1280: {
+              slidesPerView: 5,
+              spaceBetween: 10,
+            },
+          }}
             spaceBetween={50}
-            slidesPerView={4}
+            slidesPerView={2}
             navigation={true}
             modules={[Navigation]}
           >

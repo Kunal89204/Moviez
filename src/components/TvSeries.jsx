@@ -55,8 +55,8 @@ const TvSeries = ({ tvIds }) => {
         <Link to={"/tv-shows"}>TV Shows</Link>
       </div>
 
-      <div className="flex ">
-        <div className="w-1/3  p-2">
+      <div className="lg:flex ">
+        <div className="lg:w-1/3  p-2">
           <div className="aspect-square overflow-hidden rounded-xl relative">
           <Link to={'/tv-show/71728'}>
           <img
@@ -72,11 +72,11 @@ const TvSeries = ({ tvIds }) => {
           </div>
         </div>
 
-        <div className="w-2/3 flex flex-wrap">
+        <div className="lg:w-2/3 flex flex-wrap">
           {tvShows &&
             tvShows.map((tvshow) => {
               return (
-                <div className=" w-1/4 p-2">
+                <div className="w-1/2 lg:w-1/4 p-2">
                   <ImgComponent
                     key={tvshow.id}
                     showid={tvshow.id}

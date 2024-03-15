@@ -2,6 +2,8 @@ import React from "react";
 import Hero from "../components/Hero";
 import CategoryCarousal from "../components/props/CategoryCarousal";
 import TvSeries from "../components/TvSeries";
+import Banner from "../components/props/Banner";
+
 
 const Home = () => {
   const movieIds = [19995, 14564, 138843, 55779];
@@ -12,6 +14,7 @@ const Home = () => {
       <CategoryCarousal category="top_rated" categoryType="Top Rated" />
       <CategoryCarousal category="now_playing" categoryType="Now  Playing" />
       <TvSeries tvIds={tvIds} />
+      <Banner />
     </div>
   );
 };

@@ -2,15 +2,15 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { CiStar } from "react-icons/ci";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
-const MovieBanner = () => {
-  const { movieid } = useParams();
+// import { useParams } from "react-router-dom";
+const MovieBanner = (props) => {
+  // const { movieid } = useParams();
   const [movieData, setMovieData] = useState({});
 
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/${movieid}?api_key=${
+        `https://api.themoviedb.org/3/movie/${props.movieid}?api_key=${
           import.meta.env.VITE_API_KEY
         }&append_to_response=credits`
       )
@@ -20,11 +20,11 @@ const MovieBanner = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [movieid]);
-  console.log(movieData);
+  }, [props.movieid]);
+
 
   return (
-    <div className="flex relative h-screen  ">
+    <div className="flex relative h-screen overflow-hidden  ">
       {movieData && movieData.backdrop_path && (
         <img
           src={`https://image.tmdb.org/t/p/original/${movieData.backdrop_path}`}
@@ -47,14 +47,14 @@ const MovieBanner = () => {
         <div className="text-xl text-gray-400" >{movieData.tagline}</div>
 
         <div className="flex ">
-          <div className="w-2/3 pr-10 ">
+          <div className="w-3/4 pr-10 ">
             <div className="flex gap-2 py-4">
               {movieData &&
                 movieData.genres &&
                 movieData.genres.map((genre) => {
                   return (
                     <div
-                      className="bg-gray-800 py-1 px-7 rounded-2xl text-gray-400 w-fit"
+                      className="bg-gray-800 py-1 px-6 rounded-2xl text-gray-400 w-fit"
                       key={genre.id}
                     >
                       {genre.name}
@@ -89,20 +89,7 @@ const MovieBanner = () => {
               </button>
             </div>
           </div>
-          <div className="w-1/3 px-4">
-            <div className="border-t border-gray-500 pb-14">
-              <p className="text-xl text-blue-500 font-semibold">Director</p>
-              <span className="text-gray-400">James Cameron</span>
-            </div>
-            <div className="border-t border-gray-500 pb-14">
-              <p className="text-xl text-blue-500 font-semibold">Writers</p>
-              <span className="text-gray-400">Rick Jaffa,Amands Silver </span>
-            </div>
-            <div className="border-t border-gray-500 pb-14">
-              <p className="text-xl text-blue-500 font-semibold">Writers</p>
-              <span className="text-gray-400">Rick Jaffa</span>
-            </div>
-          </div>
+         
         </div>
       </div>
     </div>

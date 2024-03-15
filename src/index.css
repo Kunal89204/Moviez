@@ -23,14 +23,20 @@ body {
   box-shadow: inset 30vw 0px 100px 40px rgba(0, 0, 0, 0.87);
 }
 
-body::-webkit-scrollbar{
-  width: 10px;
+body::-webkit-scrollbar, .custom-scrollbar::-webkit-scrollbar{
+  width: 5px;
 }
 
-body::-webkit-scrollbar-track{
-  background: #000;
+body::-webkit-scrollbar-track,  .custom-scrollbar::-webkit-scrollbar-track{
+  background: #3b3b3b;
 }
 
-body::-webkit-scrollbar-thumb{
-  background: #000;
+body::-webkit-scrollbar-thumb {
+  background: #008cff;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb{
+  background: rgb(0, 225, 255);
+  border-radius: 10px;
 }
