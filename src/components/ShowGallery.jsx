@@ -6,9 +6,8 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 const ShowGallery = (props) => {
-
-    const [images, setImages] = useState({});
-    const [videos, setVideos] = useState([]);
+    const [images, setImages] = useState([]);
+    const [videos, setVideos] = useState(null);
 
     useEffect(() => {
         axios.get(`https://api.themoviedb.org/3/tv/${props.tvid}/images`, {
@@ -17,68 +16,73 @@ const ShowGallery = (props) => {
             }
         })
         .then((response) => {
-            setImages(response.data);
-        
+            setImages(response.data.backdrops);
         })
         .catch((error) => {
-            console.log('Error fetching movie images:', error);
+            console.log('Error fetching TV show images:', error);
         });
-    }, [props.tv]);
+    }, [props.tvid]);
 
     useEffect(() => {
-        axios.get(`https://api.themoviedb.org/3/movie/${props.tvid}/videos`, {
+        axios.get(`https://api.themoviedb.org/3/tv/${props.tvid}/videos`, {
             params: {
                 api_key: import.meta.env.VITE_API_KEY,
             }
         })
-      .then((response) => { 
-         setVideos(response.data.results[0]);
-         console.log(response.data);
-      })
-    }, [props.tvid])
+        .then((response) => { 
+            const results = response.data.results;
+            const video = results.find((item) => item.type === "Trailer" && item.site === "YouTube");
+            setVideos(video ? video : null);
+        })
+        .catch((error) => {
+            console.log('Error fetching TV show videos:', error);
+        });
+    }, [props.tvid]);
 
-  return (
-    <div className='py-4'>
-    <div className='text-4xl p-2 py-4'>Gallery</div>
+    return (
+        <div className='py-4'>
+            <div className='text-4xl p-2 py-4'>Gallery</div>
 
-    <Swiper
-      spaceBetween={10}
-      slidesPerView={3}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
-    >
-      {/* Video Slide */}
-      <SwiperSlide className='h-full'>
-        <div className=' h-full rounded-3xl overflow-hidden'>
-          <iframe
-            className='w-full rounded-3xl'
-            height="235px"
-            src={`https://www.youtube.com/embed/${videos.key}`}
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
+            <Swiper
+                spaceBetween={10}
+                slidesPerView={3}
+                onSlideChange={() => console.log('slide change')}
+                onSwiper={(swiper) => console.log(swiper)}
+            >
+                {/* Video Slide */}
+                <SwiperSlide className='h-full'>
+                    <div className='h-full rounded-3xl overflow-hidden'>
+                        {videos ? (
+                            <iframe
+                                className='w-full rounded-3xl'
+                                height="235px"
+                                src={`https://www.youtube.com/embed/${videos.key}`}
+                                title="YouTube video player"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowFullScreen
+                            ></iframe>
+                        ) : (
+                            <div>No video available</div>
+                        )}
+                    </div>
+                </SwiperSlide>
+
+                {/* Image Slides */}
+                {images.map((image) => (
+                    <SwiperSlide key={image.file_path} className='h-full'>
+                        <div className='rounded-3xl overflow-hidden'>
+                            <img
+                                src={`https://media.themoviedb.org/t/p/original/${image.file_path}`}
+                                alt="TV show backdrop"
+                                className='w-full h-full'
+                            />
+                        </div>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
         </div>
-      </SwiperSlide>
+    );
+};
 
-      {/* Image Slides */}
-      {images &&
-        images.backdrops &&
-        images.backdrops.slice(0, 10).map((image) => (
-          <SwiperSlide key={image.file_path} className='h-full'>
-            <div className='rounded-3xl overflow-hidden'>
-              <img
-                src={`https://media.themoviedb.org/t/p/original/${image.file_path}`}
-                alt="Movie backdrop"
-                className='w-full h-full'
-              />
-            </div>
-          </SwiperSlide>
-        ))}
-    </Swiper>
-  </div>
-  )
-}
-
-export default ShowGallery
+export default ShowGallery;

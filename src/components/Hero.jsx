@@ -51,7 +51,7 @@ const Hero = ({ movieIds }) => {
         }}
         navigation={true}
         modules={[Parallax, Pagination, Navigation]}
-        className="mySwiper"
+        className="mySwiper "
       >
         {movies.map((movie) => (
           <SwiperSlide key={movie.id}>

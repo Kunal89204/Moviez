@@ -50,8 +50,8 @@ const Gallery = (props) => {
             <SwiperSlide className='h-full'>
               <div className=' h-full rounded-3xl overflow-hidden'>
                 <iframe
-                  className='w-full rounded-3xl'
-                  height="235px"
+                  className='w-full rounded-3xl aspect-video'
+                  
                   src={`https://www.youtube.com/embed/${videos.key}`}
                   title="YouTube video player"
                   frameborder="0"

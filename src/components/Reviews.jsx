@@ -17,7 +17,6 @@ const Reviews = (props) => {
       .then((response) => {
         // Handle the response containing reviews
         setReviews(response.data.results);
-        console.log(reviews);
       })
       .catch(
         (error) => {

@@ -10,7 +10,7 @@ const Home = () => {
   const tvIds = [1396, 95479, 17404, 76479, 104877, 71712, 127532, 105009];
   return (
     <div>
-      <Hero movieIds={movieIds} />
+      <Hero movieIds={movieIds}  />
       <CategoryCarousal category="top_rated" categoryType="Top Rated" />
       <CategoryCarousal category="now_playing" categoryType="Now  Playing" />
       <TvSeries tvIds={tvIds} />
