@@ -12,7 +12,7 @@ const Banner = () => {
           backgroundPosition: "center",
         }}
       >
-        <div className="w-1/2 2xl:w-1/3">
+        <div className="w-2/3 2xl:w-1/3">
           <div className="text-xl lg:text-4xl py-2 2xl:text-5xl 2xl:py-4">X-Men: Apocalypse (2016)</div>
           <div className="py-2 text-sm lg:text-lg 2xl:text-xl">
             After the re-emergence of the world's first mutant, world-destroyer

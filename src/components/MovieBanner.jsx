@@ -48,13 +48,13 @@ const MovieBanner = (props) => {
 
         <div className="flex ">
           <div className="lg:w-3/4  lg:pr-10 ">
-            <div className="flex justify-around lg:justify-start lg:gap-2 py-4">
+            <div className="flex flex-wrap  justify-around lg:justify-start lg:gap-2 py-4">
               {movieData &&
                 movieData.genres &&
                 movieData.genres.map((genre) => {
                   return (
                     <div
-                      className="bg-gray-800 py-1 px-2 lg:px-6 rounded-2xl text-sm text-gray-400 w-fit 2xl:text-xl"
+                      className="bg-gray-800 py-1 px-2 lg:px-6 rounded-2xl my-1 lg:my-0 text-sm text-gray-400 w-fit 2xl:text-xl"
                       key={genre.id}
                     >
                       {genre.name}

@@ -94,14 +94,14 @@ const ShowPlayer = (props) => {
             <div className="lg:text-6xl text-2xl py-4">{showData.name}</div>
             <div className="lg:text-lg text-gray-400">{showData.tagline}</div>
             <div className="flex gap-2 pt-1 lg:pt-4 lg:pb-2">
-              {showData.genres.map((genre) => (
+              {/* {showData.genres.map((genre) => (
                 <div
                   key={genre.id}
                   className="bg-gray-800 py-1 px-2 rounded-2xl text-sm text-gray-400"
                 >
                   {genre.name}
                 </div>
-              ))}
+              ))} */}
             </div>
             <div className="flex items-center gap-2 lg:mt-4 mt-1 text-sm flex-wrap lg:flex-nowrap">
               <span className="text-xl">
