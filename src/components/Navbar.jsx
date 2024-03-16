@@ -15,16 +15,16 @@ const Navbar = () => {
         </div>
 
         <nav className="flex items-center text-xl gap-10 ">
-          <div className=" bg-clip-text text-transparent bg-gradient-to-tr from-blue-700 to bg-teal-400 font-semibold">
+          <div className=" bg-clip-text text-transparent bg-gradient-to-tr from-blue-700 to-teal-400 font-semibold">
             <Link to={'/'}>Home</Link>
           </div>
-          <div className=" bg-clip-text text-transparent bg-gradient-to-tr from-blue-700 to bg-teal-400 font-semibold">
+          <div className=" bg-clip-text text-transparent bg-gradient-to-tr from-blue-700 to-teal-400 font-semibold">
             <Link to={'/movies'}>Movies</Link>
           </div>
-          <div className=" bg-clip-text text-transparent bg-gradient-to-tr from-blue-700 to bg-teal-400 font-semibold">
+          <div className=" bg-clip-text text-transparent bg-gradient-to-tr from-blue-700 to-teal-400 font-semibold">
             <Link to={'tv-shows'}>TV Shows</Link>
           </div>
-          <div className=" bg-clip-text text-transparent bg-gradient-to-tr from-blue-700 to bg-teal-400 font-semibold">
+          <div className=" bg-clip-text text-transparent bg-gradient-to-tr from-blue-700 to-teal-400 font-semibold">
             <Link to={'/popular'}>Top</Link>
           </div>
         </nav>

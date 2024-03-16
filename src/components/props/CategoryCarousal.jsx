@@ -26,9 +26,9 @@ const CategoryCarousal = (props) => {
     
   
     return (
-      <div className="p-2">
-        <div className="text-3xl py-4">
-          <Link to={"/popular"}>{props.categoryType}</Link>{" "}
+      <div className="p-2 2xl:py-10">
+        <div className="text-3xl py-4 2xl:text-5xl">
+          <Link to={"/popular"}>{props.categoryType}</Link>
         </div>
   
         <div>
@@ -55,10 +55,11 @@ const CategoryCarousal = (props) => {
             slidesPerView={2}
             navigation={true}
             modules={[Navigation]}
+            className="py-10"
           >
             {popularMovie && popularMovie.map((movie) => {
               return (
-                  <SwiperSlide>
+                  <SwiperSlide className="hover:scale-105">
               <div className=" rounded-xl ">
                 <div>
                   <Link to={`/movie-info/${movie.id}`}>

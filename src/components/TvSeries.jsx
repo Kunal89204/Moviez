@@ -51,7 +51,7 @@ const TvSeries = ({ tvIds }) => {
 
   return (
     <div className="p-2">
-      <div className="text-3xl">
+      <div className="text-3xl 2xl:text-5xl py-10">
         <Link to={"/tv-shows"}>TV Shows</Link>
       </div>
 
