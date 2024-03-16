@@ -49,15 +49,19 @@ const Gallery = (props) => {
             {/* Video Slide */}
             <SwiperSlide className='h-full'>
               <div className=' h-full rounded-3xl overflow-hidden'>
-                <iframe
-                  className='w-full rounded-3xl aspect-video'
-                  
-                  src={`https://www.youtube.com/embed/${videos.key}`}
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
-                ></iframe>
+               {videos ? (
+                 <iframe
+                 className='w-full rounded-3xl aspect-video'
+                 
+                 src={`https://www.youtube.com/embed/${videos.key}`}
+                 title="YouTube video player"
+                 frameborder="0"
+                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                 allowfullscreen
+               ></iframe>
+               ) : (
+                <div>No video available</div>
+               )}
               </div>
             </SwiperSlide>
       
