@@ -42,16 +42,32 @@ const Gallery = (props) => {
       
           <Swiper
             spaceBetween={10}
-            slidesPerView={3}
+            slidesPerView={2}
+            breakpoints={
+              {
+                300: {
+                  slidesPerView: 1,
+                  spaceBetween: 10,
+                },
+                650: {
+                  slidesPerView: 2,
+                  spaceBetween: 10,
+                },
+                1040: {
+                  slidesPerView: 3,
+                  spaceBetween: 10,
+                },
+              }
+            }
             onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}
           >
             {/* Video Slide */}
             <SwiperSlide className='h-full'>
-              <div className=' h-full rounded-3xl overflow-hidden'>
+              <div className=' h-full lg:rounded-3xl rounded-xl overflow-hidden'>
                {videos ? (
                  <iframe
-                 className='w-full rounded-3xl aspect-video'
+                 className='w-full lg:rounded-3xl rounded-xl aspect-video'
                  
                  src={`https://www.youtube.com/embed/${videos.key}`}
                  title="YouTube video player"
@@ -70,7 +86,7 @@ const Gallery = (props) => {
               images.backdrops &&
               images.backdrops.slice(0, 10).map((image) => (
                 <SwiperSlide key={image.file_path} className='h-full'>
-                  <div className='rounded-3xl overflow-hidden'>
+                  <div className='lg:rounded-3xl rounded-xl overflow-hidden'>
                     <img
                       src={`https://media.themoviedb.org/t/p/original/${image.file_path}`}
                       alt="Movie backdrop"

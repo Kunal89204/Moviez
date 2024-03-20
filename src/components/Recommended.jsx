@@ -32,7 +32,24 @@ const Recommended = (props) => {
     <div className="py-4">
       <div className="text-4xl py-4">Recommended</div>
       <div>
-        <Swiper spaceBetween={10} slidesPerView={3}>
+        <Swiper
+          spaceBetween={10}
+          slidesPerView={2}
+          breakpoints={{
+            300: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            650: {
+              slidesPerView: 2,
+              spaceBetween: 10,
+            },
+            1040: {
+              slidesPerView: 3,
+              spaceBetween: 10,
+            },
+          }}
+        >
           {recommendedMovies &&
             recommendedMovies.map((movies) => {
               return (

@@ -45,7 +45,23 @@ const ShowGallery = (props) => {
 
             <Swiper
                 spaceBetween={10}
-                slidesPerView={3}
+                slidesPerView={2}
+                breakpoints={
+                  {
+                    300: {
+                      slidesPerView: 1,
+                      spaceBetween: 10,
+                    },
+                    650: {
+                      slidesPerView: 2,
+                      spaceBetween: 10,
+                    },
+                    1040: {
+                      slidesPerView: 3,
+                      spaceBetween: 10,
+                    },
+                  }
+                }
                 onSlideChange={() => console.log('slide change')}
                 onSwiper={(swiper) => console.log(swiper)}
             >
