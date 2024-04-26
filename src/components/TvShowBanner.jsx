@@ -43,7 +43,7 @@ const TvShowBanner = (props) => {
                 <div className="text-xl text-gray-400 2xl:text-2xl">{tvData.tagline}</div>
                 <div className="flex ">
                     <div className="lg:w-3/4  lg:pr-10 ">
-                        <div className="flex justify-around lg:justify-start lg:gap-2 py-4">
+                        <div className="flex justify-around lg:justify-start lg:gap-2 py-4 overflow-auto">
                             {tvData &&
                                 tvData.genres &&
                                 tvData.genres.map((genre) => (

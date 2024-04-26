@@ -37,8 +37,8 @@ const Navbar = () => {
           </div>
         </nav>
         <div className="flex text-2xl px-10 gap-5 items-center">
-          <CiUser /> <div className="relative">
-            <input type="text" placeholder="Search for a movie" value={input} onChange={(e) => setInput(e.target.value)} className="placeholder:text-sm placeholder:text-white py-1 px-2 rounded-lg bg-gray-800 outline-none flex items-center" />
+           <div className="relative">
+            <input type="text" placeholder="Search for a movie" value={input} onChange={(e) => setInput(e.target.value)} className="placeholder:text-sm placeholder:text-white pb-2 px-2 rounded-lg bg-gray-800 outline-none flex items-center " />
           <Link to={`/search/${input}`}><CiSearch className="absolute top-2 right-2" /></Link>
           </div>
         </div>
